@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import com.kirigo.mycontact.databinding.ContactListItemBinding
+import com.squareup.picasso.Picasso
 
 class RecyclerAdapter (var contact: List<Contact>):
 RecyclerView.Adapter<ContactViewHolder>(){
@@ -23,6 +24,12 @@ RecyclerView.Adapter<ContactViewHolder>(){
 //        var currentcontact = contact.get(position)
         holder.tvName.text = currentcontact.name
         holder.tvDetails.text = currentcontact.PhoneNumber
+        Picasso.get()
+            .load(currentcontact.image)
+            .resize(350, 350)
+            .centrecrop()
+            .into(holder.binding.ivContact)
+
 
     }
 
